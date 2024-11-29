@@ -33,7 +33,7 @@ public class MatchmakerQueueMapPool extends AbstractEntity<MatchmakerQueueMapPoo
   // Veto system fields
   private Integer vetoTokensPerPlayer;
   private Integer maxTokensPerMap;
-  private Float minimalMapsAllowed;
+  private Float minimumMapsAfterVeto;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "matchmaker_queue_id")
@@ -74,9 +74,9 @@ public class MatchmakerQueueMapPool extends AbstractEntity<MatchmakerQueueMapPoo
     return maxTokensPerMap;
   }
 
-  @Column(name = "minimal_maps_allowed")
+  @Column(name = "minimum_maps_after_veto")
   @UpdatePermission(expression = WriteMatchmakerMapCheck.EXPRESSION)
-  public Float getMinimalMapsAllowed() {
-    return minimalMapsAllowed;
+  public Float getMinimumMapsAfterVeto() {
+    return minimumMapsAfterVeto;
   }
 }
